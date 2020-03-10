@@ -9,9 +9,13 @@ private Test(){
 public static Test getTest(){
 
 if(t==null){
-t=new Test();
+	synchronized(Test.class) {
+		t=new Test();
+	}
+
 }
 
+return t;
 }
 
 public static void main(String[] args){
